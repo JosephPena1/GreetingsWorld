@@ -17,9 +17,10 @@ namespace HelloWorld
             //^stats^\\
             Console.WriteLine("You there, what is your name?");
             string name = Console.ReadLine();
-            Console.WriteLine(name + ". That's a good name.");
             Console.WriteLine("So " + name +", what is your class?");
-            Console.WriteLine("select class: 1. Mage 2. Knight");
+            Console.WriteLine("select class:");
+            Console.WriteLine("1. Mage");
+            Console.WriteLine("2. Knight");
             char input = Console.ReadKey().KeyChar;
             if (input == '1')
             {
@@ -42,7 +43,28 @@ namespace HelloWorld
             Console.WriteLine("Health: " + health);
             Console.WriteLine("Mana: " + mana);
             Console.WriteLine("Level: " + level);
-
+            Console.WriteLine("press enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Nice to meet you " + name + ", I would stay to chat but I have important business.");
+            Console.WriteLine("Oh, and Word of advise, there are bandits hiding around this forest.");
+            Console.WriteLine("So stay low, and move quietly.");
+            Console.WriteLine("1. move quietly 2. run aimlessly");
+            char choice = Console.ReadKey().KeyChar;
+            if (choice == '1')
+            {
+                Console.WriteLine("You sucessfully sneak out of the forest undetected");
+            }
+            else if (choice == '2')
+            {
+                Console.WriteLine("You run around randomly, then suddenly you feel a sharp pain in your arm.");
+                health = health -= 5;
+            }
+            else
+            {
+                Console.WriteLine("you're so overwhelmed by the choices you curl up on the ground and cry.");
+                Console.WriteLine("sadness: 100");
+            }
             Console.WriteLine("your level have increased");
             for (int i = 0; i < 5; i++)
             {
