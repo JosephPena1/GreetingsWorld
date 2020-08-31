@@ -13,20 +13,18 @@ namespace HelloWorld
             bool gameOver = false;
             while (gameOver == false)
             {
-                float maxHealth = 0.0f;
-                float playerHealth = 100.0f;
+                int maxHealth = 0;
+                int playerHealth = 100;
                 string role = "";
                 int level = 1;
-                float maxMana = 30.0f;
-                float mana = 30.0f;
+                int maxMana = 30;
+                int mana = 30;
                 string weapon = "Fists";
                 int damage = 0;
                 int speed = 0;
                 //^stats^\\
                 int banditHealth = 100;
                 int banditDmg = 10;
-                char enemyAction = '0';
-                char action = '0';
                 int currentEnemy = 0;
                 //^battle^\\
                 void LevelUp()
@@ -38,8 +36,7 @@ namespace HelloWorld
                         maxMana++;
                     }
                     level++;
-                    Console.WriteLine("Max Health increased by 5!");
-                    Console.WriteLine("Max Mana increased by 5!");
+                    Console.WriteLine("Max Health and Mana increased by 5!");
                     Console.WriteLine("Max Health: " + maxHealth);
                     Console.WriteLine("Max Mana: " + maxMana);
                     Console.WriteLine("Level: " + level);
@@ -63,6 +60,11 @@ namespace HelloWorld
                     playerHealth = playerHealth - banditDmg;
                     Console.WriteLine("You took " + banditDmg + " damage.");
                     Console.WriteLine("Health: " + playerHealth);
+                }
+                void KO()
+                {
+                    playerHealth = playerHealth - playerHealth;
+                    Console.WriteLine("You have died!");
                 }
                 //^functions^\\
                 Console.WriteLine("You there, what is your name?");
@@ -138,8 +140,8 @@ namespace HelloWorld
                     Console.ReadKey();
                     Console.WriteLine("Wouldn't want bandits to find us.");
                     Console.ReadKey();
-                    Console.WriteLine("[1] move quietly");
-                    Console.WriteLine("[2] run aimlessly");
+                    Console.WriteLine("[1] Move quietly");
+                    Console.WriteLine("[2] Run loudly");
                     input = '0';
                     while (input != '1' && input != '2')
                     {
@@ -155,7 +157,7 @@ namespace HelloWorld
                         else if (input == '2')
                         {
                             Console.Clear();
-                            Console.WriteLine("You run around hopeing to find a way out, then suddenly you feel an arrow pierce your leg.");
+                            Console.WriteLine("You run to get out of the forest, then suddenly you feel an arrow pierce your leg.");
                             playerHealth = playerHealth - 10;
                             Console.WriteLine("Health: " + playerHealth);
                             Console.WriteLine("You look up to see a bandit running towards you, sword in hand.");
